@@ -17,11 +17,11 @@
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
+%\usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
 % \usepackage{tabularx}
 % \usepackage{hyphenat}
-% \usepackage{fontawesome}
+\usepackage{fontawesome}
 \usepackage{tabto}    % make nice tabbing
 \input{glyphtounicode}
 \setquotestyle{english}
@@ -29,7 +29,6 @@
 
 % how far to tab for list items with left-aligned date: different fonts need different widths
 \newcommand{\listtabwidth}{1.7cm}
-
 
 %---------- FONT OPTIONS ----------
 % sans-serif
@@ -253,13 +252,16 @@
 
 \section{Publications}
 \subsection*{Journal Articles}
-\begin{tablist}
-  \item[2023] \tab{}\fullcite{groben2023mycobiome}
-  \item[2023] \tab{}\fullcite{qu2023latent} 
-  \item[2022] \tab{}\fullcite{morris2022improved} 
-  \item[2022] \tab{}\fullcite{qu2022ros} 
-  \item[2022] \tab{}\fullcite{qu2022redthread} 
-\end{tablist}
+\begin{itemize}
+  \item[2023] \fullcite{groben2023mycobiome}
+  \item[2023] \fullcite{qu2023latent} 
+  \item[2022] \fullcite{morris2022improved} 
+  \item[2022] \fullcite{qu2022ros} 
+  \item[2022] \fullcite{qu2022redthread} 
+\end{itemize}
+
+
+
 
 %----------- AWARDS & ACHIEVEMENTS -----------
 
