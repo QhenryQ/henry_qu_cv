@@ -4,9 +4,13 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper,11pt, english]{article}
 
 \usepackage{latexsym}
+\usepackage[english]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage[maxcitenames=10, minnames=3]{biblatex}
+\usepackage{csquotes} % smart and nestable quote marks
+\usepackage{hyperref}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
@@ -15,13 +19,12 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\usepackage{hyphenat}
-\usepackage{fontawesome}
+% \usepackage{tabularx}
+% \usepackage{hyphenat}
+% \usepackage{fontawesome}
 \usepackage{tabto}    % make nice tabbing
 \input{glyphtounicode}
-\usepackage[maxcitenames=99, minnames=3 ]{biblatex}
+\setquotestyle{english}
 \addbibresource[]{biblio.bib}
 
 % how far to tab for list items with left-aligned date: different fonts need different widths
@@ -252,6 +255,10 @@
 \subsection*{Journal Articles}
 \begin{tablist}
   \item[2023] \tab{}\fullcite{groben2023mycobiome}
+  \item[2023] \tab{}\fullcite{qu2023latent} 
+  \item[2022] \tab{}\fullcite{morris2022improved} 
+  \item[2022] \tab{}\fullcite{qu2022ros} 
+  \item[2022] \tab{}\fullcite{qu2022redthread} 
 \end{tablist}
 
 %----------- AWARDS & ACHIEVEMENTS -----------
