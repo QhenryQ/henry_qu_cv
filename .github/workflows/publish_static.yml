@@ -37,6 +37,7 @@ jobs:
       - name: Compile LaTex document
         uses: xu-cheng/latex-action@v2
         with:
+          enablement: true
           root_file: main_cv.tex
 #       - name: Upload PDF file
 #         uses: actions/upload-artifact@v3
