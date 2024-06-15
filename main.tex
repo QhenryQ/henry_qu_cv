@@ -49,6 +49,7 @@
 % serif
 % \usepackage{CormorantGaramond}
 % \usepackage{charter}
+% \usepackage{fontspec}
 
 
 \pagestyle{fancy}
@@ -163,18 +164,20 @@
 %---------- HEADING ----------
 
 \begin{center}
-    \textbf{\Huge \scshape Yuanshuo Henry Qu} \\ \vspace{3pt}
+    \textbf{\Large \scshape Henry Yuanshuo Qu \begin{CJK*}{UTF8}{gbsn}曲远硕\end{CJK*}} \\ \vspace{3pt}
     \small
-    \faMobile \hspace{.5pt} \href{tel:7324851243}{+1 732 485 1243}
+    \faMobile \hspace{.5pt} {+1 732 485 1243}
     $|$
-    \faAt \hspace{.5pt} \href{mailto:henry.yqu@gmail.com}{henry.yqu@gmail.com}
+    \faAt \hspace{.5pt} {henry.yqu@gmail.com}
     $|$
     \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/henryyqu}{LinkedIn}
     $|$
     \faGithub \hspace{.5pt} \href{https://github.com/QhenryQ}{GitHub}
     $|$
-    \faMapMarker \hspace{.5pt} \href{https://www.google.com/maps/place/Wakefield,+MA+01880/@42.5012174,-71.10937,13z/data=!3m1!4b1!4m6!3m5!1s0x89e37336b7b29abd:0x155bd497bd25ffef!8m2!3d42.5018307!4d-71.0750488!16zL20vMDFtMnBr?entry=ttu}{Wakfield, Massachusetts}
+    \faMapMarker \hspace{.5pt} {Wakfield, Massachusetts}
 \end{center}
+
+% \text{Analytical and meticulous Senior Data Scientist with 4 years’ experience in machine learning, statistical modeling, and pipeline automation. Highly proficient in version control, advanced data manipulation, and geospatial analysis, showcasing expertise in data visualization and effective data management. Proactive team player and effective communicator, adept at cultivating collaborative and high-performing team culture.}
 
 
 
@@ -188,15 +191,15 @@
       {Rutgers University
       % \normalfont{(Admission rate: 0.09\%)}
       }{\textbf{New Brunswick, New Jersey}}
-      {Ph.D. in Plant Breeding and Genetics; GPA: 3.8}{Sep 2014 \textbf{--} Oct 2020}
-      {M.S.  in Statistics;   GPA: 3.9}{Sep 2015 \textbf{--} May 2017}
-      {B.S.  in Plant Science;   GPA: 3.8}{Sep 2011 \textbf{--} May 2013}
+      {Ph.D. in Plant Breeding and Genetics}{Sep 2014 \textbf{--} Oct 2020}
+      {M.S.  in Statistics}{Sep 2015 \textbf{--} May 2017}
+      {B.S.  in Plant Science}{Sep 2011 \textbf{--} May 2013}
     
     \resumeSubheading
       {Shanghai Jiao Tong University
       % \normalfont{(Admission rate: 0.85\%)}
       }{\textbf{Shanghai, China}}
-      {B.E.  in Food Science and Engineering;   GPA: 3.2}{Sep 2008 \textbf{--} May 2011}
+      {B.E.  in Food Science and Engineering}{Sep 2008 \textbf{--} May 2011}
     
   \resumeSubHeadingListEnd
 
@@ -212,30 +215,31 @@
       {Indigo Agriculture}{\textbf{Boston, Massachusetts}}
       {Senior Data Scientist}{Aug 2020 \textbf{--} Present}
         \resumeItemListStart
-            \resumeItem{Leveraged geospatial relationship and developed a statistical model that detects and labels irrigation events using on-farm temperature sensor data, enabling program scale-up by 261\%.}
-            \resumeItem{Built predictive models for corn and soybean basis bids of ~3800 buyers across the United States, achieving model error standard deviation less than 8 cents for both crops.}
+            \resumeItem{Built and maintained data extraction, transform, and analysis pipelines for managed agriculture systems.}
+            \resumeItem{Designed and implemented machine learning models for irrigation detection using on-farm sensor data, enabled program scaling by 261\% (US Patent 18/391,335, Irrigation System in Agriculture Environment).}
+            \resumeItem{Developed predictive models for corn and soybean basis bids for 3800 buyers across the United States, achieved model error standard deviation less than 8 cents for both crops.}
+            \resumeItem{Designed and developed Plotly Dash web application for visualization and validation of model outputs.}
             \resumeItem{Improved diagnostic models for major corn- and soybean-producing counties and reduced error standard deviation by 23\% and 38\%, respectively. }
-            \resumeItem{Hosted bi-weekly journal club on grain merchandising, sourcing, and sustainability topics. }
+            \resumeItem{Hosted bi-weekly journal club on statistics, grain merchandising and sustainability topics. }
         \resumeItemListEnd
     
     \resumeSubheading
       {National Turfgrass Evaluation Program (NTEP)}{\textbf{Remote}}
-      {Data and Statistical Consultant (part-time, 5hr/week)}{Jun 2022 \textbf{--} Present}
+      {Lead Data Scientist (part-time)}{Jan 2020 \textbf{--} Present}
         \resumeItemListStart
-            \resumeItem{Formulate business problems to statistical questions that can be answered with NTEP's proprietary data}
-            \resumeItem{Establish new or enhance existing trials and data collection protocols for better analysis results.}
-            \resumeItem{Organize/participate in literature and grant reviews for NTEP and other grant-issuing entities.}
-            \resumeItem{Fundraising and grant application}
+            \resumeItem{Led the development of a next generation turfgrass evaluation system, leveraging Bayesian hierarchical models, item-response theory, and Gaussian process, enabling cultivar comparison across time and location with reduced uncertainties.}
+            \resumeItem{Organized/participated in literature and grant reviews for NTEP and other grant-issuing entities.}
+            \resumeItem{Designed and conducted experiments to solve business problems using scientific approaches.}
+            \resumeItem{Presentation to internal and external stakeholders for fundraising and grant application}
         \resumeItemListEnd
 
     \resumeSubheading
       {Oxbridge Economics}{\textbf{Remote}}
       {Founding Partner, Data Science}{Jan 2021 \textbf{--} Present}
         \resumeItemListStart
-          \resumeItem{Establish a data-driven product development culture by driving the definition, tracking, and
-          operationalizing of feature-, product-, and company-level metrics.}
-          \resumeItem{Develop and socialize dashboards, reports, and other ways of enabling the team and company to answer product data questions in a self-serve way.}
-          \resumeItem{Fundraising and external communication of products.}
+          \resumeItem{Led a cross-functional team in developing a large-language-model-based search engine for financial information search and retrieval.}
+          \resumeItem{Oversaw the whole development cycle from planning stages through to execution following SDLC principles.}
+          \resumeItem{Presented data-driven insights to stakeholders, facilitating informed decision-making, strategic planning and fundraising.}
         \resumeItemListEnd
     
   \resumeSubHeadingListEnd
@@ -249,11 +253,11 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Agronomy Journal}{\textbf{Remote}}
-      {Associate Editor, Statistics and Agronomy}{Jan 2019 \textbf{--} Present}
+      {Associate Editor, Statistics, Genetics and Agronomy}{Jan 2019 \textbf{--} Present}
 
     \resumeSubheading
       {Agrosystems, Geosciences \& Environmental Journal}{\textbf{Remote}}
-      {Associate Editor, Statistics and Agronomy}{Jan 2019 \textbf{--} Present}
+      {Associate Editor, Statistics, Genetics and Agronomy}{Jan 2019 \textbf{--} Present}
 
     \resumeSubheading
       {Rutgers Professional Turf Management School}{\textbf{New Brunswick, New Jersey}}
@@ -277,20 +281,34 @@
         \\[-0.2cm] 
       \textbf{Technology:} \hspace{0.1cm} & Docker, Git, Linux, AWS\\
         \\[-0.2cm] 
-      \textbf{Languages:} \hspace{0.1cm} & Mandarin Chinese (Native) English (Professional)\\
+      \textbf{Languages:} \hspace{0.1cm} & Mandarin Chinese, English\\
     \end{tabularx}
 
+
+%----------- GRANTS -----------
+\section{Grant Applications}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2024\hspace{1cm} &  \textbf{Pending:} Co-PI on WaterSmartTurf: Bridging Genome-To-Phenome And Release-To-Adoption Gaps For Breeding And Deployment Of Drought-Tolerant Warm-Season Turfgrasses. USDA SCRI Coordinated Agricultural Project (CAP) \\
+    \\[-0.2cm]
+    2024\hspace{1cm} &  \textbf{Pending:} PI on Development of a Spatial and Temporal Analytical Pipeline for the Playing Surfaces of the National Football League. NFL HealthTECH Challenge. \\
+    \\[-0.2cm]
+    2023\hspace{1cm} &  \textbf{Pending:} Co-PI on Kne et al. Development of Latent Scale Machine Learning Models to Improve the Accuracy of Crop Evaluation Using Subjective Spatio-Temporal Data. USDA AFRI Data Science for Agricultrual Systems \\
+    \\[-0.2cm]
+  \end{tabularx}
+\end{flushleft}
 %----------- REFERENCES -----------
 
 \section{Publications}
 \subsection*{Journal Articles}
 \begin{flushleft}
   \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2024\hspace{1cm} &  \textbf{Work in Progress:} Hok Nip Leung, Kevin Morris, \textbf{Qu, Yuanshuo}. Monitoring Turfgrass Seasonality via Visual Rating Data: An Application of Item-Response Theory to Turf Quality Data in the National Turfgrass Evaluation Program. \\
+    \\[-0.2cm]
+    2024\hspace{1cm} & \textbf{Under Reveiw:} Shidi Wu, Austin Grimshaw, \textbf{Qu, Yuanshuo}, Stacy Bonos. “Inheritance of Summer Patch Disease Tolerance in Hard Fescue (\textit{Festuca brevipila Tracey})”. in: \textit{\textbf{International Turfgrass Society Research Journal}}\\
+    \\[-0.2cm]
     2023\hspace{1cm} &  \fullcite{groben2023mycobiome}\\
-  \end{tabularx}
-\end{flushleft}
-\begin{flushleft}
-  \begin{tabularx}{\textwidth}{@{}lX@{}}
+    \\[-0.2cm]
     2023 \hspace{1cm} & \fullcite{qu2023latent}\\
     \\[-0.2cm]
     2022 \hspace{1cm}  & \fullcite{morris2022improved} Meeting; online \\
@@ -305,31 +323,13 @@
   \end{tabularx}
 \end{flushleft}
 
-
-\subsection*{Book Chapters}
-\begin{flushleft}
-  \begin{tabularx}{\textwidth}{@{}lX@{}}
-  2023\hspace{1cm} &   \fullcite{2023considerations}
-\end{tabularx}
-\end{flushleft}
-
-\subsection*{News Articles}
-\begin{flushleft}
-  \begin{tabularx}{\textwidth}{@{}lX@{}}
-  2021 \hspace{1cm} &   \fullcite{qu2021carbont} 
-  \end{tabularx}
-\end{flushleft}
-
 \subsection*{Technical Reports}
 \begin{flushleft}
   \begin{tabularx}{\textwidth}{@{}lX@{}}
   2021 \hspace{1cm} &   \fullcite{qiu2021free-trade-zones}\\
   \\[-0.2cm]
   2019 \hspace{1cm} &   \fullcite{h2019pr}\\
-\end{tabularx}
-\end{flushleft}
-\begin{flushleft}
-  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  \\[-0.2cm]
   2019 \hspace{1cm} &   \fullcite{qu2019perffinefescue}\\
   \\[-0.2cm]
   2019 \hspace{1cm}&    \fullcite{qu2019perftallfescue}\\
@@ -350,6 +350,21 @@
   \\[-0.2cm]
   2014 \hspace{1cm} &   \fullcite{qu2014pry}\\
 \end{tabularx}
+\end{flushleft}
+
+
+\subsection*{Book Chapters}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  2023\hspace{1cm} &   \fullcite{2023considerations}
+\end{tabularx}
+\end{flushleft}
+
+\subsection*{News Articles}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  2021 \hspace{1cm} &   \fullcite{qu2021carbont} 
+  \end{tabularx}
 \end{flushleft}
 
 %----------- AWARDS & ACHIEVEMENTS -----------
@@ -422,23 +437,11 @@
 %----------- SKILLS -----------
 
 
-
-%----------- RELEVANT COURSEWORK -----------
-\begin{comment}
-\section{Relevant Coursework}
-  \vspace{2pt}
-  \resumeSubHeadingListStart
-    \small{\item{
-        \textbf{Major coursework:}{ Calculus I-II, Matrix Theory, Differential Equations, Materials Science, Electrical Circuits I-II, Digital System Design, Numerical Methods, Probability Theory, Electronics I-II, Signals and Systems, Electromagnetic Field Theory, Energy Conversion, System Dynamics and Control, Communication Engineering} \\ \vspace{3pt}
-        
-        \textbf{Minor coursework:}{ Discrete Computational Structures, Introduction to Object-Oriented Programming, Data Structures and Algorithms}
-    }}
-  \resumeSubHeadingListEnd
-\end{comment}
-
 \section{Presentations \& Talks}
 \begin{flushleft}
   \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2023--04--24 \hspace{1cm} & Introduction and Outlook of the Turfgrass Evaluation Methods at National Turfgrass Evaluation Program. Turfgrass Institute, Beijing Forestry University. Online \\
+    \\[-0.2cm] 
     2022--11--08 \hspace{1cm} & A Latent Scale Model to Minimize Subjectivity for Visual Rating Data in the National Turfgrass Evaluation Program (NTEP). 2022 ASA-CSSA-SSSA International Annual Meeting. Baltimore, MD \\
     \\[-0.2cm] 
     2022--07--12 \hspace{1cm} & Evaluation and Genetic Analysis of Red Thread (\textit{Laetisaria fuciformis}) Disease Prevalence in Tall Fescue (\textit{Festuca arundinacea}). The 14th International Turfgrass Research Conference (ITRC). Copenhagen, Denmark. \\
@@ -446,7 +449,7 @@
 \end{flushleft}
 \begin{flushleft}
     \begin{tabularx}{\textwidth}{@{}lX@{}}
-    2022--04--04 \hspace{1cm} & Rasch Scale Model and Its Application to NTEP data. Turfgrass Breeders Association Meeting; online \\
+    2022--04--04 \hspace{1cm} & Rasch Scale Model and Its Application to NTEP data. Turfgrass Breeders Association Meeting. online \\
     \\[-0.2cm]
     2019--11--12 \hspace{1cm} & Genetic Analysis on Drought Response of Tall Fescue [\textit{Festuca arundinacea} (Schreb.)] in Rain-out Shelter Using Bayesian Mixed Linear Models. 2019 ASA-CSSA-SSSA International Annual Meeting. San Antonio, TX. \\
       \\[-0.2cm]
@@ -479,14 +482,16 @@
 
 \section{Plant Variety Developed}
 \begin{flushleft}
-\begin{tabularx}{\textwidth}{@{}p{5cm}@{\hspace{1cm}}X@{}}
-    \textit{Festuca arundinacea} “Honeymoon” & RHL2 in 2018 NTEP Tall Fescue Test \\
+\begin{tabularx}{\textwidth}{@{}p{7cm}@{\hspace{1cm}}X@{}}
+    \textit{Festuca arundinacea} “Honeymoon” & 2018 NTEP Tall Fescue Test \\
     \\[-0.2cm]
     \textit{Festuca arundinacea} “AH1” & 2018 NTEP Tall Fescue Test \\
     \\[-0.2cm]
     \textit{Festuca arundinacea} “AH2”  & 2018 NTEP Tall Fescue Test \\
     \\[-0.2cm]
     \textit{Festuca arundinacea} “HWP”  & \\
+    \\[-0.2cm]
+    \textit{Festuca trachyphylla} “Sword II” & \\
     \\[-0.2cm]
     \textit{Lolium perenne} “Pharaoh”  & 2016 NTEP Perennial Ryegrass Test \\
 \end{tabularx}
@@ -501,11 +506,16 @@
   \end{tabularx}
 \end{flushleft}
 
-\newpage
 
 \section{Academic Service}
 \begin{flushleft}
   \begin{tabularx}{\textwidth}{@{}lX@{}}
+      2024 \hspace{1cm} & Panelist, Specialty Crop Research Initiative (SCRI) Relevance Review, United States Department of Agriculture  \\
+      \\[-0.2cm] 
+      2023 \hspace{1cm} & Panelist, Specialty Crop Research Initiative (SCRI) Relevance Review, United States Department of Agriculture  \\
+      \\[-0.2cm] 
+      2023 \hspace{1cm} & Volunteer Judge for Posters on Turfgrass Genetics at the 2023 ASA-CSSA-SSSA Annual Meeting \\
+      \\[-0.2cm] 
       2020 \hspace{1cm} & Mentor, Cook Researchers of Plant Science Program at Rutgers University \\
       \\[-0.2cm] 
       2020 \hspace{1cm} & Teaching Assistant, Intro to Python Data Analysis workshop at the 2020 ASA-CSSA-SSSA Annual Meeting \\
@@ -521,14 +531,13 @@
 \section{Social Service}
 \begin{flushleft}
   \begin{tabularx}{\textwidth}{@{}p{3cm}@{\hspace{0.01cm}}X@{}}
-    \multirow{3}{3cm}{2022--09--29\\ \hspace{0.1cm} to \\2023--07--30} & Exhibition Consultant and Volunteer for “Journeys \begin{CJK*}{UTF8}{gbsn}旅途\end{CJK*}: Boys of the Chinese Educational Mission” at Connecticut Historical Society Museum and Library, Hartford, Connecticut \emph{\href{https://chs.org/exhibition/journeys/ }{\color{blue}Link}}\\
+    \multirow{2}{3cm}{2022--09--29 to \\2023--07--30} & Exhibition Consultant and Volunteer for “Journeys \begin{CJK*}{UTF8}{gbsn}旅途\end{CJK*}: Boys of the Chinese Educational Mission” at Connecticut Historical Society Museum and Library, Hartford, Connecticut \emph{\href{https://chs.org/exhibition/journeys/ }{\color{blue}Link}}\\
   \end{tabularx}
 \end{flushleft}
 
-\vspace{0.3cm}
+\newpage
 
 \section{Awards \& Soceity Memberships}
-
 \begin{flushleft}
 \begin{tabularx}{\textwidth}{@{}lX@{}}
     2015--Present \hspace{0.5cm} & Member, Crop Science Society of America \\
@@ -538,28 +547,24 @@
     2014--2019  & Member, New Jersey Turfgrass Association \\
     \\[-0.2cm] 
     2018--2019  & Member, New Jersey Landscape Contractors Association \\
-\end{tabularx}
-\end{flushleft}
-
-\begin{flushleft}
-  \begin{tabularx}{\textwidth}{@{}lX@{}}
-    2014--2020 \hspace{1cm} & Member, Cook Researchers of Plant Science at Rutgers University \\
-      \\[-0.2cm] 
-      2020 \hspace{1cm} & Spencer Davis Award, Department of Plant Biology, Rutgers University \\
-      \\[-0.2cm] 
-      2019 \hspace{1cm} & New Jersey Turfgrass Foundation Hall of Fame Scholarship, New Jersey Turfgrass Foundation \\
-      \\[-0.2cm] 
-      2018 \hspace{1cm} & Dr. James Watson Fellowship, The Toro Company and the Environmental Institute for Golf (EIFG) of Golf Course Superintendents Association of America (GCSAA) \\
-      \\[-0.2cm] 
-      2018 \hspace{1cm} & New Jersey Landscape Contractors Association Scholarships, Landscape Contractors Association of New Jersey \\
-      \\[-0.2cm] 
-      2017 \hspace{1cm} & Golf Course Superintendents Association of New Jersey Scholarships, GCSANJ \\
-      \\[-0.2cm] 
-      2016 \hspace{1cm} & Ralph Geiger Scholarship, Center for Turfgrass Science \\
-      \\[-0.2cm] 
-      2015 \hspace{1cm} & Weston Memorial Scholarship, Center for Turfgrass Science \\
-      \\[-0.2cm] 
-      2014 \hspace{1cm} & NJ State Golf Association \& Ralph Engel Caddie Scholarship, New Jersey State Golf Association \\
+    \\[-0.2cm] 
+    2024 \hspace{1cm} & 2023 Editor’s Citation for Excellence Award, Agronomy Journal \\
+    \\[-0.2cm] 
+    2020 \hspace{1cm} & Spencer Davis Award, Department of Plant Biology, Rutgers University \\
+    \\[-0.2cm] 
+    2019 \hspace{1cm} & New Jersey Turfgrass Foundation Hall of Fame Scholarship, New Jersey Turfgrass Foundation \\
+    \\[-0.2cm] 
+    2018 \hspace{1cm} & Dr. James Watson Fellowship, The Toro Company and the Environmental Institute for Golf (EIFG) of Golf Course Superintendents Association of America (GCSAA) \\
+    \\[-0.2cm] 
+    2018 \hspace{1cm} & New Jersey Landscape Contractors Association Scholarships, Landscape Contractors Association of New Jersey \\
+    \\[-0.2cm] 
+    2017 \hspace{1cm} & Golf Course Superintendents Association of New Jersey Scholarships, GCSANJ \\
+    \\[-0.2cm] 
+    2016 \hspace{1cm} & Ralph Geiger Scholarship, Center for Turfgrass Science \\
+    \\[-0.2cm] 
+    2015 \hspace{1cm} & Weston Memorial Scholarship, Center for Turfgrass Science \\
+    \\[-0.2cm] 
+    2014 \hspace{1cm} & NJ State Golf Association \& Ralph Engel Caddie Scholarship, New Jersey State Golf Association \\
   \end{tabularx}
 \end{flushleft}
   
