@@ -1,62 +1,147 @@
-\documentclass[12pt,letterpaper]{report}
+%-------------------------
+% Resume in Latex
+% Author : Henry Qu
+% License : MIT
+%------------------------
 
-\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
-\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
-\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
-\usepackage{microtype}% improve text appearance with kerning, etc
-\usepackage{datetime} % enable formatting of date output
+\documentclass[letterpaper,11pt, english]{article}
+
+\usepackage{latexsym}
+\usepackage[english]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage[maxcitenames=10, minnames=3]{biblatex}
+\usepackage[a4paper, top=2cm, bottom=2cm]{geometry}
+\usepackage{csquotes} % smart and nestable quote marks
+\usepackage{hyperref}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color} %\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+%\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+% \usepackage{tabularx}
+% \usepackage{hyphenat}
+\usepackage{fontawesome}
+\usepackage{changepage} 
+\usepackage{CJKutf8}
 \usepackage{tabto}    % make nice tabbing
-\usepackage{hyperref} % enable hyperlinks and pdf metadata
-\usepackage{geometry} % manually set page margins
-\usepackage{enumitem} % enumerate with [resume] option
-\usepackage{titlesec} 
-\usepackage{setspace} % custom line spacing
-\usepackage[maxcitenames=6, minnames=3 ]{biblatex}
+\usepackage{tabularx}
+\usepackage[english]{datetime2}
+\usepackage{datetime2-calc}
+\usepackage{CJKutf8}
+\usepackage{multirow}
+\newcommand{\ExpandDTMdate}[1]{\DTMfetch{#1}{year}-\DTMfetch{#1}{month}-\DTMfetch{#1}{day}}
+\input{glyphtounicode}
+\setquotestyle{english}
 \addbibresource[]{biblio.bib}
-
-% what is your name?
-\newcommand{\myname}{Yuanshuo "Henry" Qu}
-
-% select default typefaces
-\usepackage{ebgaramond} % document's serif typeface
-\usepackage{tgheros}    % document's sans serif typeface
 
 % how far to tab for list items with left-aligned date: different fonts need different widths
 \newcommand{\listtabwidth}{1.7cm}
 
-% define font to use as document's title
-\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+%---------- FONT OPTIONS ----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
 
-% set section heading fonts and before/after spacing
-\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
-\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
-\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+% \usepackage{fontspec}
 
-% set subsection heading fonts and before/after spacing
-\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
-\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
 
-% set page margins (assumes letter paper)
-\geometry{body={6.5in, 9.0in},
-    left=1.0in,
-    top=1.0in}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-% prevent paragraph indentation
-\setlength\parindent{0em}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
 
-% set line spacing
-\setstretch{0.9}
+\urlstyle{same}
 
-% define space between list items
-\newcommand{\listitemspace}{0.25em}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
 
-% make unordered lists without bullets and use compact spacing
-\renewenvironment{itemize}
-{\begin{list}{}{\setlength{\leftmargin}{0em}
-                \setlength{\parskip}{0em}
-                \setlength{\itemsep}{\listitemspace}
-                \setlength{\parsep}{\listitemspace}}}
-{\end{list}}
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeSubSubheading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeEducationHeading}[8]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+      \textit{\small#5} & \textit{\small #6} \\
+      \textit{\small#7} & \textit{\small #8} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeOrganizationHeading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2} \\
+      \textit{\small#3}
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
 
 % make tabbed lists so content is left-aligned next to years
 \TabPositions{\listtabwidth}
@@ -69,133 +154,489 @@
     parsep=\listitemspace,
     font=\normalfont}
 
-% print only the month and year when using \today
-\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
 
-% define hyperlink appearance and metadata for pdf properties
-\hypersetup{
-    colorlinks  = true,
-    urlcolor    = black,
-    citecolor   = black,
-    linkcolor   = black,
-    pdfauthor   = {\myname},
-    pdfkeywords = {Deep Learning, Machine Learning, Smart Meter ,Social Computation},
-    pdftitle    = {\myname: Curriculum Vitae},
-    pdfsubject  = {Curriculum Vitae},
-    pdfpagemode = UseNone
-}
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{document}
-    % \nobibliography*
-    \raggedright{}
 
-    % display your name as the document title
-    \namefont{\myname}
+%---------- HEADING ----------
 
-    % affiliation and contact info blocks
-    \vspace{1em}
-    \begin{minipage}[t]{0.700\textwidth}
-        % current primary affiliation, left-aligned
-        Indigo Agriculture\\
-        National Turfgrass Evaluation Program (NTEP)
-    \end{minipage}
-    \begin{minipage}[t]{0.295\textwidth}
-        % contact info details, right-aligned
-        \flushright{}
-        \href{mailto:zhirluo@gmail.com}{henry.yqu@gmail.com} \\
-        +1 732 485 1243 \\
-        \href{https://orcid.org/0000-0003-2046-469X}{orcid:0000-0003-2046-469X}
-    \end{minipage}
+\begin{center}
+    \textbf{\Large \scshape Henry Yuanshuo Qu \begin{CJK*}{UTF8}{gbsn}曲远硕\end{CJK*}} \\ \vspace{3pt}
+    \small
+    \faMobile \hspace{.5pt} {+1 732 485 1243}
+    $|$
+    \faAt \hspace{.5pt} {henry.yqu@gmail.com}
+    $|$
+    \faLinkedinSquare \hspace{.5pt} \href{https://www.linkedin.com/in/henryyqu}{LinkedIn}
+    $|$
+    \faGithub \hspace{.5pt} \href{https://github.com/QhenryQ}{GitHub}
+    $|$
+    \faMapMarker \hspace{.5pt} {Wakfield, Massachusetts}
+\end{center}
 
-    \section*{Education}
+% \text{Analytical and meticulous Senior Data Scientist with 4 years’ experience in machine learning, statistical modeling, and pipeline automation. Highly proficient in version control, advanced data manipulation, and geospatial analysis, showcasing expertise in data visualization and effective data management. Proactive team player and effective communicator, adept at cultivating collaborative and high-performing team culture.}
+
+
+
+%----------- EDUCATION -----------
+
+\section{Education}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
     
-    \begin{tablist}
-      \item[Ph.D.] \tab{}Plant Breeding and Genetics, Rutgers University, New Brunswick, USA, 2014-2020
-      \item[M.S.] \tab{}Statistics, Rutgers University, New Brunswick, USA, 2015-2017
-      \item[B.S.] \tab{}Plant Science, Rutgers University, New Brunswick, USA, 2011-2013
-      \item[B.E.] \tab{}Food Science and Engineering, Shanghai Jiao Tong University, Shanghai, China, 2008-2011
-    \end{tablist}
-    
-    \section*{Industry Experiences}
-    \resumeSubHeadingListStart
+    \resumeEducationHeading
+      {Rutgers University
+      % \normalfont{(Admission rate: 0.09\%)}
+      }{\textbf{New Brunswick, New Jersey}}
+      {Ph.D. in Plant Breeding and Genetics}{Sep 2014 \textbf{--} Oct 2020}
+      {M.S.  in Statistics}{Sep 2015 \textbf{--} May 2017}
+      {B.S.  in Plant Science}{Sep 2011 \textbf{--} May 2013}
     
     \resumeSubheading
-      {SESTEK Speech Enabled Software Technologies}{Istanbul, Turkey}
-      {Natural Language Processing R\&D Intern}{Jan 2022 \textbf{--} Feb 2022}
+      {Shanghai Jiao Tong University
+      % \normalfont{(Admission rate: 0.85\%)}
+      }{\textbf{Shanghai, China}}
+      {B.E.  in Food Science and Engineering}{Sep 2008 \textbf{--} May 2011}
+    
+  \resumeSubHeadingListEnd
+
+
+
+%----------- INDUSTRY EXPERIENCE -----------
+
+\section{Industry Experience}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Indigo Agriculture}{\textbf{Boston, Massachusetts}}
+      {Senior Data Scientist}{Aug 2020 \textbf{--} Present}
         \resumeItemListStart
-            \resumeItem{Implemented common NLP tasks using transformers such as named-entity recognition (NER), part-of-speech (POS) tagging, sentiment analysis, text classification, and extractive/generative question answering.}
-            \resumeItem{Built a generative question answering system via Dense Passage Retrieval (DPR) and Retrieval-Augmented Generation (RAG) using the Haystack framework with Python.}
-            \resumeItem{Worked on a custom Turkish open-domain question answering system by fine-tuning a BERT base model transformer. Evaluated the exact match and F1 scores using different Turkish data sets and compared the evaluation results.}
+            \resumeItem{Built and maintained data extraction, transform, and analysis pipelines for managed agriculture systems.}
+            \resumeItem{Designed and implemented machine learning models for irrigation detection using on-farm sensor data, enabled program scaling by 261\% (US Patent 18/391,335, Irrigation System in Agriculture Environment).}
+            \resumeItem{Developed predictive models for corn and soybean basis bids for 3800 buyers across the United States, achieved model error standard deviation less than 8 cents for both crops.}
+            \resumeItem{Designed and developed Plotly Dash web application for visualization and validation of model outputs.}
+            \resumeItem{Improved diagnostic models for major corn- and soybean-producing counties and reduced error standard deviation by 23\% and 38\%, respectively. }
+            \resumeItem{Hosted bi-weekly journal club on statistics, grain merchandising and sustainability topics. }
+        \resumeItemListEnd
+    
+    \resumeSubheading
+      {National Turfgrass Evaluation Program (NTEP)}{\textbf{Remote}}
+      {Lead Data Scientist (part-time)}{Jan 2020 \textbf{--} Present}
+        \resumeItemListStart
+            \resumeItem{Led the development of a next generation turfgrass evaluation system, leveraging Bayesian hierarchical models, item-response theory, and Gaussian process, enabling cultivar comparison across time and location with reduced uncertainties.}
+            \resumeItem{Organized/participated in literature and grant reviews for NTEP and other grant-issuing entities.}
+            \resumeItem{Designed and conducted experiments to solve business problems using scientific approaches.}
+            \resumeItem{Presentation to internal and external stakeholders for fundraising and grant application}
         \resumeItemListEnd
 
-    \section*{Publications}
-    \subsection*{Journal Articles}
-    \begin{tablist}
-        \item[2022] \tab{}\fullcite{li2022new}
-    \end{tablist}
+    \resumeSubheading
+      {Oxbridge Economics}{\textbf{Remote}}
+      {Founding Partner, Data Science}{Jan 2021 \textbf{--} Present}
+        \resumeItemListStart
+          \resumeItem{Led a cross-functional team in developing a large-language-model-based search engine for financial information search and retrieval.}
+          \resumeItem{Oversaw the whole development cycle from planning stages through to execution following SDLC principles.}
+          \resumeItem{Presented data-driven insights to stakeholders, facilitating informed decision-making, strategic planning and fundraising.}
+        \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
 
-    % \section*{INVITED TALKS}
-    % \subsection*{Campus Talks}
 
-    \section*{Conference Activity}
-    \begin{tablist}
-        \item[2022] \tab{}The 7th International Conference on Smart Computing and Communication (SmartCom 2022), New York, USA
-        \item[2022] \tab{}NSF EPSCoR Workshop on Artificial Intelligence \& No-Boundary Thinking, Little Rock, Arkansa
-    \end{tablist}
 
-    \section*{Awards}
-    \subsection*{Awards and Honors}
-    \begin{tablist}
-        \item[2022] \tab{}Best Student Paper Award, SmartCom2022
-        \item[2022] \tab{}First Place Graduate Poster Award, New Mexico Research Symposium (NMRS)
-        \item[2022] \tab{}First Place Poster Winner, NM SMART Grid Center All Hands Meeting
-        \item[2022] \tab{}Second Place Graduate Poster Award, NMT Student Research Symposium
-    \end{tablist}
+%----------- ACADEMIC EXPERIENCE -----------
 
-    \section*{Teaching}
-    \begin{tablist}
-        \item[2022 Summer] \tab{}Introductory-level Python course, Upward Bound Math and Science
-        \item[2020-2022] \tab{}Compiler Writing Lab
-        \item[2018-2022] \tab{}Teaching Assistant: Computer Network, Operating System, 
-    \end{tablist}
+\section{Academic Experience}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Agronomy Journal}{\textbf{Remote}}
+      {Associate Editor, Statistics, Genetics and Agronomy}{Jan 2019 \textbf{--} Present}
 
-    \section*{Service}
-    \subsection*{Academic Journal and Conference Peer Review}
-    \begin{itemize}
-        \item IEEE Wireless Communications and Networking Conference (WCNC)
-        \item Scientific Reports
-        \item Knowledge-Based Systems
-        \item PeerJ Computer Science
-        \item Journal of King Saud University - Computer and Information Sciences 
-        \item The 36th ACM/SIGAPP Symposium On Applied Computing
-    \end{itemize}
+    \resumeSubheading
+      {Agrosystems, Geosciences \& Environmental Journal}{\textbf{Remote}}
+      {Associate Editor, Statistics, Genetics and Agronomy}{Jan 2019 \textbf{--} Present}
 
-    \section*{Research Labs and Assistantship}
-    \begin{tablist}
-        \item[2020-Now] \tab{}Research assistant at Human-Centered Computing and Security Lab, NMT
-        \item[2019-2021] \tab{}Graduate Assistant for REU in Cybersecurity, NMT
-        \item[2018-2020] \tab{}Research assistant at Sensor Security, Neural Network Lab, NMT
-        \item[2017 Summer] \tab{}Research assistant on optimization of twice-differetiable non-convex function
-        \item[2016-2017] \tab{}Robotics Lab Research, NMT
-    \end{tablist}
+    \resumeSubheading
+      {Rutgers Professional Turf Management School}{\textbf{New Brunswick, New Jersey}}
+      {Instructor}{Jan 2017 \textbf{--} Jan 2019}
+        \resumeItemListStart
+          \resumeItem{Designed course curriculum, lesson plans, and assessment tools.}
+          \resumeItem{Organized and chaperoned field trips to encourage hands-on learning experiences.} 
+          \resumeItem{Achieved 80\% or higher overall course evaluation scores for all four semesters taught.}
+        \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
 
-    \section*{Certificates}
-    \begin{tablist}
-        % \item[2022] \tab{}Graduate Certificate in Cybersecurity
-        \item[2022] \tab{}Intel AI Analytics Toolkit Workshop
-        \item[2014] \tab{}IBM Academic Initiative Senior Software Development Engineer
-    \end{tablist}
+%----------- SKILLS -----------
 
-    \section*{Professional Employment}
-    \begin{tablist}
-        \item[2018] \tab{}C++ Development, Zhejiang Guozi Robotics, Hangzhou, China
-    \end{tablist}
 
-    \section*{Skills}
-    \begin{tablist}
-        \item[Programming] \tab{}Python, C/C++, C\#, Java, JS, LaTex, Matlab
-        \item[Web] \tab{}\tab{}Flask, Bootstrap
-        \item[Deep Learning] \tab{}PyTorch, TensorFlow
-    \end{tablist}
 
+\section{Skills}
+\hspace{0.3cm}
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
+      \textbf{Programing:} \hspace{0.1cm} & Python, R, STAN, BUGS, JAGS, SQL\\ 
+        \\[-0.2cm] 
+      \textbf{Technology:} \hspace{0.1cm} & Docker, Git, Linux, AWS\\
+        \\[-0.2cm] 
+      \textbf{Languages:} \hspace{0.1cm} & Mandarin Chinese, English\\
+    \end{tabularx}
+
+
+%----------- GRANTS -----------
+\section{Grant Applications}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2024\hspace{1cm} &  \textbf{Pending:} Co-PI on WaterSmartTurf: Bridging Genome-To-Phenome And Release-To-Adoption Gaps For Breeding And Deployment Of Drought-Tolerant Warm-Season Turfgrasses. USDA SCRI Coordinated Agricultural Project (CAP) \\
+    \\[-0.2cm]
+    2024\hspace{1cm} &  \textbf{Pending:} PI on Development of a Spatial and Temporal Analytical Pipeline for the Playing Surfaces of the National Football League. NFL HealthTECH Challenge. \\
+    \\[-0.2cm]
+    2023\hspace{1cm} &  \textbf{Pending:} Co-PI on Kne et al. Development of Latent Scale Machine Learning Models to Improve the Accuracy of Crop Evaluation Using Subjective Spatio-Temporal Data. USDA AFRI Data Science for Agricultrual Systems \\
+    \\[-0.2cm]
+  \end{tabularx}
+\end{flushleft}
+%----------- REFERENCES -----------
+
+\section{Publications}
+\subsection*{Journal Articles}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2024\hspace{1cm} &  \textbf{Work in Progress:} Hok Nip Leung, Kevin Morris, \textbf{Qu, Yuanshuo}. Monitoring Turfgrass Seasonality via Visual Rating Data: An Application of Item-Response Theory to Turf Quality Data in the National Turfgrass Evaluation Program. \\
+    \\[-0.2cm]
+    2024\hspace{1cm} & \textbf{Under Reveiw:} Shidi Wu, Austin Grimshaw, \textbf{Qu, Yuanshuo}, Stacy Bonos. “Inheritance of Summer Patch Disease Tolerance in Hard Fescue (\textit{Festuca brevipila Tracey})”. in: \textit{\textbf{International Turfgrass Society Research Journal}}\\
+    \\[-0.2cm]
+    2023\hspace{1cm} &  \fullcite{groben2023mycobiome}\\
+    \\[-0.2cm]
+    2023 \hspace{1cm} & \fullcite{qu2023latent}\\
+    \\[-0.2cm]
+    2022 \hspace{1cm}  & \fullcite{morris2022improved} Meeting; online \\
+    \\[-0.2cm]
+    2021  & \fullcite{qu2022ros} \\
+    \\[-0.2cm]
+    2020  & \fullcite{qu2022redthread} \\
+    \\[-0.2cm]
+    2019  & \fullcite{qu2019finefescue} \\
+    \\[-0.2cm]
+    2018  & \fullcite{qu2018finfs} \\
+  \end{tabularx}
+\end{flushleft}
+
+\subsection*{Technical Reports}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  2021 \hspace{1cm} &   \fullcite{qiu2021free-trade-zones}\\
+  \\[-0.2cm]
+  2019 \hspace{1cm} &   \fullcite{h2019pr}\\
+  \\[-0.2cm]
+  2019 \hspace{1cm} &   \fullcite{qu2019perffinefescue}\\
+  \\[-0.2cm]
+  2019 \hspace{1cm}&    \fullcite{qu2019perftallfescue}\\
+  \\[-0.2cm]
+  2018 \hspace{1cm}&    \fullcite{qu2018perffinefescue}\\
+  \\[-0.2cm]
+  2018 \hspace{1cm} &   \fullcite{qu2018perfryegrass}\\
+  \\[-0.2cm]
+  2018 \hspace{1cm} &   \fullcite{qu2018ptf}\\
+  \\[-0.2cm]
+  2017\hspace{1cm}  &   \fullcite{qu2017ptf}\\
+  \\[-0.2cm]
+  2017\hspace{1cm}  &   \fullcite{qu2017perfryegrass}\\
+  \\[-0.2cm]
+  2016 \hspace{1cm} &   \fullcite{qu2016pry}\\
+  \\[-0.2cm]
+  2015 \hspace{1cm}&    \fullcite{qu2015pry}\\
+  \\[-0.2cm]
+  2014 \hspace{1cm} &   \fullcite{qu2014pry}\\
+\end{tabularx}
+\end{flushleft}
+
+
+\subsection*{Book Chapters}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  2023\hspace{1cm} &   \fullcite{2023considerations}
+\end{tabularx}
+\end{flushleft}
+
+\subsection*{News Articles}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+  2021 \hspace{1cm} &   \fullcite{qu2021carbont} 
+  \end{tabularx}
+\end{flushleft}
+
+%----------- AWARDS & ACHIEVEMENTS -----------
+\begin{comment}
+\section{Awards \& Achievements}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{National University Admission Exam (YKS):}{ Ranked $75^{th}$ in Mathematics and Science among ca. 2.3 million candidates with a test score of 489.92/500.} \\ \vspace{3pt}
+        
+        \textbf{KYK Outstanding Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Higher Education Credit and Hostels Institution (KYK).} \\ \vspace{3pt}
+        
+        \textbf{Boğaziçi University Success Scholarship:}{ Awarded to undergraduate students who have been ranked in the top 100 on National University Admission Exam by Boğaziçi University.} \\ \vspace{3pt}
+        
+        \textbf{TÜBİTAK 2247-C Intern Researcher Scholarship:}{ Awarded to undergraduate students who take part in research projects carried out by the Scientific and Technological Research Council of Turkey (TÜBİTAK).} \\ \vspace{3pt}
+        
+        % \textbf{Boğaziçi University English Proficiency Test (BUEPT):}{ Achieved the highest grade A on the BUEPT grading scheme with a total score in the range of 85-100.} \\ \vspace{3pt}
+        
+        \textbf{Kocaeli Science High School Salutatorian Award:}{ Graduated as the second-highest ranked student in my class.}
+    }}
+  \resumeSubHeadingListEnd
+\end{comment}
+
+
+%----------- PROJECTS -----------
+\begin{comment}
+\section{Projects}
+    \vspace{3pt}
+    \resumeSubHeadingListStart
+      
+      \resumeProjectHeading
+        {\textbf{Filters and Fractals} $|$ \emph{\href{https://github.com/arasgungore/filters-and-fractals}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{A C project which implements a variety of image processing operations that manipulate the size, filter, brightness, contrast, saturation, and other properties of PPM images from scratch.}
+            \resumeItem{Added recursive fractal generation functions to model popular fractals including Mandelbrot set, Julia set, Koch curve, Barnsley fern, and Sierpinski triangle in PPM format.}
+          \resumeItemListEnd
+      
+      \resumeProjectHeading
+        {\textbf{Chess Bot} $|$ \emph{\href{https://github.com/arasgungore/chess-bot}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{A C++ project in which you can play chess against an AI with a specified decision tree depth that uses alpha-beta pruning algorithm to predict the optimal move.}
+            \resumeItem{Aside from basic moves, this mini chess engine also implements chess rules such as castling, en passant, fifty-move rule, threefold repetition, and pawn promotion.}
+          \resumeItemListEnd
+      
+      \resumeProjectHeading
+        {\textbf{Rocket Flight Simulator} $|$ \emph{\href{https://github.com/arasgungore/rocket-flight-simulator}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{A Simulink project which can accurately simulate the motion of a flying rocket in one-dimensional space.}
+            \resumeItem{The project implements the forces acting on a rocket which are drag, weight, and thrust as subsystems that take time-variant parameters into consideration such as distance from the center of Earth, mass and velocity of the rocket, and air density at different layers of Earth's atmosphere.}
+          \resumeItemListEnd
+      
+      \resumeProjectHeading
+        {\textbf{Netlist Solver} $|$ \emph{\href{https://github.com/arasgungore/netlist-solver}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{A MATLAB project that uses modified nodal analysis (MNA) algorithm to calculate the node voltages of any analog circuit without dependent sources given in netlist format.}
+            \resumeItem{Added a module that sweeps the resistance of a load resistor, plots power dissipation as a function of load resistance, and finds the resistance value corresponding to maximum power.}
+          \resumeItemListEnd
+      
+      \resumeProjectHeading
+        {\textbf{CMPE 250 Projects} $|$ \emph{\href{https://github.com/arasgungore/CMPE250-projects}{\color{blue}GitHub}}}{}
+          \resumeItemListStart
+            \resumeItem{Five Java projects assigned for the Data Structures and Algorithms (CMPE 250) course in the Fall 2021-22 semester.}
+            \resumeItem{These projects apply DS\&A concepts such as discrete-event simulation (DES) using priority queues, Dijkstra's shortest path algorithm, Prim's algorithm to find the minimum spanning tree (MST), Dinic's algorithm for maximum flow problems, and weighted job scheduling with dynamic programming to real-world problems.}
+          \resumeItemListEnd
+      
+    \resumeSubHeadingListEnd
+  \end{comment}
+
+
+%----------- SKILLS -----------
+
+
+\section{Presentations \& Talks}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2023--04--24 \hspace{1cm} & Introduction and Outlook of the Turfgrass Evaluation Methods at National Turfgrass Evaluation Program. Turfgrass Institute, Beijing Forestry University. Online \\
+    \\[-0.2cm] 
+    2022--11--08 \hspace{1cm} & A Latent Scale Model to Minimize Subjectivity for Visual Rating Data in the National Turfgrass Evaluation Program (NTEP). 2022 ASA-CSSA-SSSA International Annual Meeting. Baltimore, MD \\
+    \\[-0.2cm] 
+    2022--07--12 \hspace{1cm} & Evaluation and Genetic Analysis of Red Thread (\textit{Laetisaria fuciformis}) Disease Prevalence in Tall Fescue (\textit{Festuca arundinacea}). The 14th International Turfgrass Research Conference (ITRC). Copenhagen, Denmark. \\
+  \end{tabularx}
+\end{flushleft}
+\begin{flushleft}
+    \begin{tabularx}{\textwidth}{@{}lX@{}}
+    2022--04--04 \hspace{1cm} & Rasch Scale Model and Its Application to NTEP data. Turfgrass Breeders Association Meeting. online \\
+    \\[-0.2cm]
+    2019--11--12 \hspace{1cm} & Genetic Analysis on Drought Response of Tall Fescue [\textit{Festuca arundinacea} (Schreb.)] in Rain-out Shelter Using Bayesian Mixed Linear Models. 2019 ASA-CSSA-SSSA International Annual Meeting. San Antonio, TX. \\
+      \\[-0.2cm]
+    2019--07--31 \hspace{1cm} & Breeding of Tall Fescue with Improved Drought Tolerance. 2019 Rutgers Turfgrass Research Field Days. Freehold, NJ. \\
+    \\[-0.2cm]
+    2019--06--05 \hspace{1cm} & Turf Industry in the United States- from Research to Production. Invited Presentation to China Agricultural University. Beijing, China. \\
+    \\[-0.2cm]
+    2019--01--25 \hspace{1cm} & Estimation of Variance Components and Narrow Sense Heritability from Family Data under Bayesian Framework. 2019 Rutgers Plant Science Symposium. New Brunswick, NJ. \\
+    \\[-0.2cm]
+    2018--11--05 \hspace{1cm} & Application of Bayesian Statistics to Genotype Evaluation and Phenotypic Selection. 2018 ASA-CSSA-SSSA International Annual Meeting. Baltimore, MD. \\
+  \end{tabularx}
+\end{flushleft}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+2018--08--01 \hspace{1cm} & 2017 NTEP Tall Fescue Trial. 2018 Rutgers Turfgrass Research Field Days. Freehold, NJ. \\
+\\[-0.2cm]
+2017--07--21 \hspace{1cm} & Breeding Fine Fescues for Improved Shade Tolerance. 2017 International Turfgrass Research Conference, Rutgers Turfgrass Tour. Freehold, NJ. \\
+\\[-0.2cm]
+2017--02--27 \hspace{1cm} & Cool-Season Turfgrass Breeding and the Turf Industry in the United States. The New Jersey Institute of Technology, Innovation in Ag. Newark, NJ. \\
+\\[-0.2cm]
+2016--05--12 \hspace{1cm} & Disease Resistance Screening and Genetic Diversity in the 2012 NTEP Tall Fescue Test. 2016 Rutgers Turfgrass Research Field Days. Freehold, NJ. \\
+\\[-0.2cm]
+2015--12--16 \hspace{1cm} & Introduction to Cool-Season Turfgrass Breeding and the Golf Industry in the United States. Annual GCSAA Conference of China. Hainan, China. \\
+\\[-0.2cm] 
+2015--07--28 \hspace{1cm} & Selection of Tall Fescue Cultivars with Improved Resistance to Brown Patch and Red Thread Disease. 2015 Rutgers Turfgrass Research Field Days. North Brunswick, NJ. \\
+\\[-0.2cm] 
+2014--07--29 \hspace{1cm} & Breeding and Selection of Tall Fescue. 2014 Rutgers Turfgrass Research Field Days. North Brunswick, NJ. \\
+  \end{tabularx}
+\end{flushleft}
+
+\section{Plant Variety Developed}
+\begin{flushleft}
+\begin{tabularx}{\textwidth}{@{}p{7cm}@{\hspace{1cm}}X@{}}
+    \textit{Festuca arundinacea} “Honeymoon” & 2018 NTEP Tall Fescue Test \\
+    \\[-0.2cm]
+    \textit{Festuca arundinacea} “AH1” & 2018 NTEP Tall Fescue Test \\
+    \\[-0.2cm]
+    \textit{Festuca arundinacea} “AH2”  & 2018 NTEP Tall Fescue Test \\
+    \\[-0.2cm]
+    \textit{Festuca arundinacea} “HWP”  & \\
+    \\[-0.2cm]
+    \textit{Festuca trachyphylla} “Sword II” & \\
+    \\[-0.2cm]
+    \textit{Lolium perenne} “Pharaoh”  & 2016 NTEP Perennial Ryegrass Test \\
+\end{tabularx}
+\end{flushleft}
+
+\section{Media Exposure}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+      2023--01--16 \hspace{1cm} & Episode 157. Journeys \begin{CJK*}{UTF8}{gbsn}旅途\end{CJK*}: Boys of the Chinese Educational Mission; Grating The Nutmeg \emph{\href{https://gratingthenutmeg.libsyn.com/157-journeys-boys-of-the-chinese-educational-mission }{\color{blue}Video}}\\ 
+      \\[-0.2cm] 
+      2022--11--11 \hspace{1cm} & Remembering the Chinese Educational Mission at the Connecticut Historical Society; Connecticut Public Radio; \emph{\href{https://www.ctpublic.org/show/where-we-live/2022-11-11/remembering-the-chinese-educational-mission-at-the-connecticut-historical-society}{\color{blue}Video}}\\
+  \end{tabularx}
+\end{flushleft}
+
+
+\section{Academic Service}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}lX@{}}
+      2024 \hspace{1cm} & Panelist, Specialty Crop Research Initiative (SCRI) Relevance Review, United States Department of Agriculture  \\
+      \\[-0.2cm] 
+      2023 \hspace{1cm} & Panelist, Specialty Crop Research Initiative (SCRI) Relevance Review, United States Department of Agriculture  \\
+      \\[-0.2cm] 
+      2023 \hspace{1cm} & Volunteer Judge for Posters on Turfgrass Genetics at the 2023 ASA-CSSA-SSSA Annual Meeting \\
+      \\[-0.2cm] 
+      2020 \hspace{1cm} & Mentor, Cook Researchers of Plant Science Program at Rutgers University \\
+      \\[-0.2cm] 
+      2020 \hspace{1cm} & Teaching Assistant, Intro to Python Data Analysis workshop at the 2020 ASA-CSSA-SSSA Annual Meeting \\
+      \\[-0.2cm] 
+      2019 \hspace{1cm} & Volunteer, Intro to Python Data Analysis workshop at the 2019 ASA-CSSA-SSSA Annual Meeting \\
+      \\[-0.2cm] 
+      2018 \hspace{1cm} & Volunteer, Turf Bowl at GCSAA Education Conference and Golf Industry Show \\
+      \\[-0.2cm] 
+      2017 \hspace{1cm} & Volunteer, NJLCA Landscape Industry Certification Exam \\
+  \end{tabularx}
+\end{flushleft}
+
+\section{Social Service}
+\begin{flushleft}
+  \begin{tabularx}{\textwidth}{@{}p{3cm}@{\hspace{0.01cm}}X@{}}
+    \multirow{2}{3cm}{2022--09--29 to \\2023--07--30} & Exhibition Consultant and Volunteer for “Journeys \begin{CJK*}{UTF8}{gbsn}旅途\end{CJK*}: Boys of the Chinese Educational Mission” at Connecticut Historical Society Museum and Library, Hartford, Connecticut \emph{\href{https://chs.org/exhibition/journeys/ }{\color{blue}Link}}\\
+  \end{tabularx}
+\end{flushleft}
+
+\newpage
+
+\section{Awards \& Soceity Memberships}
+\begin{flushleft}
+\begin{tabularx}{\textwidth}{@{}lX@{}}
+    2015--Present \hspace{0.5cm} & Member, Crop Science Society of America \\
+    \\[-0.2cm] 
+    2015--Present & Member, International Turfgrass Society \\
+    \\[-0.2cm] 
+    2014--2019  & Member, New Jersey Turfgrass Association \\
+    \\[-0.2cm] 
+    2018--2019  & Member, New Jersey Landscape Contractors Association \\
+    \\[-0.2cm] 
+    2024 \hspace{1cm} & 2023 Editor’s Citation for Excellence Award, Agronomy Journal \\
+    \\[-0.2cm] 
+    2020 \hspace{1cm} & Spencer Davis Award, Department of Plant Biology, Rutgers University \\
+    \\[-0.2cm] 
+    2019 \hspace{1cm} & New Jersey Turfgrass Foundation Hall of Fame Scholarship, New Jersey Turfgrass Foundation \\
+    \\[-0.2cm] 
+    2018 \hspace{1cm} & Dr. James Watson Fellowship, The Toro Company and the Environmental Institute for Golf (EIFG) of Golf Course Superintendents Association of America (GCSAA) \\
+    \\[-0.2cm] 
+    2018 \hspace{1cm} & New Jersey Landscape Contractors Association Scholarships, Landscape Contractors Association of New Jersey \\
+    \\[-0.2cm] 
+    2017 \hspace{1cm} & Golf Course Superintendents Association of New Jersey Scholarships, GCSANJ \\
+    \\[-0.2cm] 
+    2016 \hspace{1cm} & Ralph Geiger Scholarship, Center for Turfgrass Science \\
+    \\[-0.2cm] 
+    2015 \hspace{1cm} & Weston Memorial Scholarship, Center for Turfgrass Science \\
+    \\[-0.2cm] 
+    2014 \hspace{1cm} & NJ State Golf Association \& Ralph Engel Caddie Scholarship, New Jersey State Golf Association \\
+  \end{tabularx}
+\end{flushleft}
+  
+
+
+%----------- CERTIFICATES -----------
+
+% \section{Certificates}
+  % \resumeSubHeadingListStart
+    
+    % \resumeOrganizationHeading
+      % {Procter \& Gamble VIA Certificate Program}{Feb 2022}{Business Skills, Data and Digital Skills, Project Management and Personal Productivity}
+    
+  % \resumeSubHeadingListEnd
+
+
+
+%----------- ORGANIZATIONS -----------
+
+% \section{Organizations}
+  % \resumeSubHeadingListStart
+    
+    % \resumeOrganizationHeading
+      % {Institute of Electrical and Electronics Engineers (IEEE)}{Feb 2022 -- Present}{Student Member}
+    
+  % \resumeSubHeadingListEnd
+
+
+
+%----------- HOBBIES -----------
+
+% \section{Hobbies}
+  % \resumeSubHeadingListStart
+    % \small{\item{Swimming, Fitness, Eight-ball}}
+  % \resumeSubHeadingListEnd
+
+\begin{comment}
+\section{Skills}
+  \vspace{3pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Programing:}{Python, R, STAN, BUGS, JAGS, SQL}
+      {Python, R, STAN, BUGS, JAGS, SQL}{}
+
+    \resumeSubheading
+      {Tech:}{}
+      {Docker, Git, Linux, AWS}{}
+
+    \resumeSubheading
+      {Languages:}{}
+      {Mandarin Chinese (Native) English (Professional)}{}    
+  \resumeSubHeadingListEnd
+\end{comment}
+
+\begin{comment}
+  \section{Skills}
+  \vspace{2pt}
+  \resumeSubHeadingListStart
+    \small{\item{
+        \textbf{Skills:}{ Python, R, STAN, BUGS, JAGS, SQL} \\ \vspace{3pt}
+        
+        \textbf{Tech:}{ Docker, Git, Linux, AWS} \\ \vspace{3pt}
+        
+        \textbf{Languages:}{ Mandarin Chinese (Native) English (Professional)}
+        
+        % \textbf{Frameworks}{: X, X, X} \\
+        % \textbf{Developer Tools}{: X, X, X} \\
+        % \textbf{Libraries}{: X, X, X} \\
+        % \textbf{Applications}{: X, X, X}
+    }}
+  \resumeSubHeadingListEnd
+\end{comment}
+
+%-------------------------------------------
 \end{document}
